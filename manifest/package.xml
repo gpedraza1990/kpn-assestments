@@ -16,6 +16,10 @@
         <members>kPN_OrderProducts</members>
 		<name>LightningComponentBundle</name>
 	</types>
+    <types>
+		<members>Order</members>
+		<name>CustomObject</name>
+	</types>
 	<types>
 		<members>MyMessageChannel</members>
 		<name>LightningMessageChannel</name>
