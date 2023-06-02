@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-m-around_medium">
+        <lightning-card title="Order Products">
+            <div slot="actions">
+                <lightning-button label="Activate" variant="brand" 
+                onclick={handleActivate} disabled={isDisabled}></lightning-button>
+            </div>
+            <lightning-datatable
+                key-field="Id"
+                data={orderProducts}
+                columns={columns}
+                hide-checkbox-column="true"
+                show-row-number-column="true"
+            ></lightning-datatable>
+        </lightning-card>
+    </div>
+</template>
