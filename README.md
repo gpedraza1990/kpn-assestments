@@ -20,7 +20,7 @@ The project also includes a test class to ensure the functionality of the LWC an
 To use this project, follow these steps:
 
 1. Clone the repository to your local machine.
-2. Deploy the Salesforce project using Salesforce DX or the Salesforce CLI.
+2. Deploy the Salesforce project using Salesforce DX or the Salesforce CLI (In order to work properly user a Salesforce developer Org).
 3. Assign the necessary permissions to the user accessing the component and Apex controller.
 4. Run the provided tests to ensure the functionality is working as expected.
 
