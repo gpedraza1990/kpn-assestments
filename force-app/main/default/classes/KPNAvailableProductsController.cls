@@ -12,10 +12,18 @@ public with sharing class KPNAvailableProductsController {
      * @description get available products from an order with pagination
      * @return List<ProductWrapper>
      */
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled
     public static List<ProductWrapper> getAvailableProducts(Id orderId, Integer limitSize, Integer offset) {
         // Fetch the Order's price book ID
-        Id pricebookId = [SELECT Pricebook2Id FROM Order WHERE Id = :orderId].Pricebook2Id;
+        Order order = [SELECT Pricebook2Id FROM Order WHERE Id = :orderId Limit 1]; 
+        Id pricebookId = order.Pricebook2Id;
+        
+        //If order don't have a pricebook associated then set the standard one.
+        if(pricebookId == null){
+            pricebookId = [SELECT Id from Pricebook2 where name = 'Standard' Limit 1].Id;
+            order.Pricebook2Id = pricebookId;
+            update order;
+        }
         
         // Fetch the order items on the current order
         List<OrderItem> orderItems = [SELECT Product2Id FROM OrderItem WHERE OrderId = :orderId];
