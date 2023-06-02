@@ -1,0 +1,14 @@
+<template>
+     
+    <div class ="AvaliableProductsContainer" >
+        <lightning-datatable
+            key-field="productId"
+            data={displayedProducts}
+            columns={columns}
+            hide-checkbox-column="true"
+            onrowaction={handleRowAction}
+            onloadmore={loadMoreData}
+            enable-infinite-loading={enable_infinite_loading}
+        ></lightning-datatable>
+    </div>
+</template>
